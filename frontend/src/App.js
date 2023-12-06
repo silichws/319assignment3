@@ -29,8 +29,8 @@ const GET = () => {
               {product.title}
             </span>
             <p className="card-text">
-            <strong>ID: </strong> {product.id} <br></br>
-            <strong>Price: </strong>${product.price} <br></br>
+              <strong>ID: </strong> {product.id} <br></br>
+              <strong>Price: </strong>${product.price} <br></br>
               <strong>Description: </strong>
               {product.description}
               <br></br>
@@ -45,10 +45,9 @@ const GET = () => {
     );
   });
   return (
-    <div>
+    <div className="bodyArea">
       <h1>Catalog of Products</h1>
       <div>
-        <h3>Showing all available Products.</h3>
         <div className="container">
           <div className="row row-cols-1 row-cols-md-3 g-3">{showAllItems}</div>
         </div>
@@ -90,7 +89,8 @@ const UPDATE = () => {
             {product.title}
           </span>
           <p className="card-text">
-            <strong>ID: </strong> {product.id}<br></br>
+            <strong>ID: </strong> {product.id}
+            <br></br>
             <strong>Price:</strong> ${product.price} <br></br>
             <strong>Description: </strong>
             {product.description}
@@ -146,9 +146,9 @@ const UPDATE = () => {
   };
 
   return (
-    <div>
+    <div className="bodyArea">
       <h1>Upate a product </h1>
-      <div>
+      <div className="bodyArea">
         <input
           type="text"
           id="message"
@@ -156,11 +156,15 @@ const UPDATE = () => {
           placeholder="id"
           onChange={(e) => getOneProduct(e.target.value)}
         />
-        <div className="container" style={{ margin: 10 }}>
-          <div className="row row-cols-1 row-cols-md-3 g-3">{showOneItem}</div>
+        <div>
+          <div className="container" style={{ margin: 10 }}>
+            <div className="row row-cols-1 row-cols-md-3 g-3">
+              {showOneItem}
+            </div>
+          </div>
         </div>
-        <div className="g-3 col-md-3 formBorder space">
-          <form className="row" id="checkout-form" onSubmit={handleSubmit}>
+        <div className="g-3 col-md-3 formBorder space spacing">
+          <form id="checkout-form" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="inputnewPrice" className="form-label">
                 New Price
@@ -279,13 +283,13 @@ const CREATE = () => {
   };
 
   return (
-    <div>
+    <div className="bodyArea">
       <h1>Create a new product </h1>
-      <div>
+      <div className="spacing">
         <div className="g-3 col-md-3 formBorder space">
-          <form className="row g-3" id="checkout-form" onSubmit={handleSubmit}>
+          <form className="g-3" id="checkout-form" onSubmit={handleSubmit}>
             <div>
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputid" className="form-label">
                   ID
                 </label>
@@ -303,7 +307,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">ID is required</div>
               </div>
 
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputTitle" className="form-label">
                   Title
                 </label>
@@ -321,7 +325,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Title is required</div>
               </div>
 
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputnewPrice" className="form-label">
                   Price
                 </label>
@@ -339,7 +343,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Price is required</div>
               </div>
 
-              <div className="col-md-12">
+              <div>
                 <label htmlFor="inputDescription" className="form-label">
                   Description
                 </label>
@@ -357,7 +361,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Description is required</div>
               </div>
 
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputCategory" className="form-label">
                   Category
                 </label>
@@ -375,7 +379,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Category is required</div>
               </div>
 
-              <div className="col-md-12">
+              <div>
                 <label htmlFor="inputImage" className="form-label">
                   Image
                 </label>
@@ -393,7 +397,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Image is required</div>
               </div>
 
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputRate" className="form-label">
                   Rate
                 </label>
@@ -411,7 +415,7 @@ const CREATE = () => {
                 <div className="invalid-feedback">Rate is required</div>
               </div>
 
-              <div className="col-md-6">
+              <div>
                 <label htmlFor="inputCount" className="form-label">
                   Count
                 </label>
@@ -504,7 +508,7 @@ const DELETE = () => {
   ));
 
   return (
-    <div>
+    <div className="bodyArea">
       <h1>Delete a product </h1>
       <div>
         <input
@@ -526,21 +530,22 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/get">View all products</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-            <li>
-              <Link to="/getid">Update</Link>
-            </li>
-            <li>
-              <Link to="/delete">Delete</Link>
-            </li>
-          </ul>
+        <nav className="topNav">
+          <Link className="navbtn" to="/get">
+            View all products
+          </Link>
+
+          <Link className="navbtn" to="/create">
+            Create
+          </Link>
+
+          <Link className="navbtn" to="/getid">
+            Update
+          </Link>
+
+          <Link className="navbtn" to="/delete">
+            Delete
+          </Link>
         </nav>
         <Routes>
           <Route path="/get" element={<GET />} />

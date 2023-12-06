@@ -12,3 +12,28 @@
 .makeApiCall{
 	margin-top: 10px;
 }
+
+.navbtn {
+  margin-right: 1rem;
+  margin-left:1rem;
+  background-color: white;
+  border:white;
+  color: black;
+  margin-bottom:1rem;
+}
+
+.topNav{
+  margin-top: 25px;
+  text-align: center;
+}
+
+.bodyArea{
+  text-align: center;
+  margin-top: 30px;
+  justify-content: center;
+    align-items: center; 
+}
+
+.spacing{
+  margin-left: 20px;
+}
