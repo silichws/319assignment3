@@ -12,6 +12,7 @@ app.listen(port, () => {
 });
 
 const { MongoClient } = require("mongodb");
+const { exit } = require("process");
 
 const url = "mongodb://127.0.0.1:27017";
 const dbName = "reactdata";
@@ -53,7 +54,7 @@ app.post("/add", async (req, res) => {
   var values = Object.values(req.body);
   console.log(values);
 
-  const id = values[0];
+  const id = Number(values[0]);
   const title = values[1];
   const price = values[2];
   const description = values[3];
@@ -83,13 +84,26 @@ app.post("/add", async (req, res) => {
 app.put("/update", async (req, res) => {
   console.log("updating");
   await client.connect();
-  let query =  {id: req.body["id"]};
+  let query =  {id: Number(req.body["id"])};
   if (!query)
   {
     res.status(500);
     res.send("Not found");
     return;
   }
+  const temp = await db
+    .collection(collection)
+    .find(query)
+    .toArray();
+  console.log(temp);
+  const id = Number(temp[0].id);
+  const title = temp[0].title;
+  const description = temp[0].description;
+  const category = temp[0].category;
+  const image = temp[0].image;
+  const rate = temp[0].rating["rate"];
+  const count = temp[0].rating["count"];
+
   const results_delete = await db.collection(collection).deleteOne(query);
 
   console.log(results_delete);
@@ -97,15 +111,7 @@ app.put("/update", async (req, res) => {
   var key = Object.keys(req.body);
   var values = Object.values(req.body);
   console.log(values);
-
-  const id = values[0];
-  const title = values[1];
-  const price = values[2];
-  const description = values[3];
-  const category = values[4];
-  const image = values[5];
-  const rate = values[6];
-  const count = values[7];
+  const price = values[1];
 
   const newDoc = {
     id: id,
@@ -129,7 +135,7 @@ app.put("/update", async (req, res) => {
 app.delete("/delete", async (req, res) => {
   await client.connect();
   console.log(req.body["id"]);
-  let query =  {id: req.body["id"]};
+  let query =  {id: Number(req.body["id"])};
   const results = await db.collection(collection).deleteOne(query);
   // let results = "none";
   res.status(200);

@@ -1,19 +1,14 @@
-.aboveGuage {
-  text-align: center;
-}
 
-.controlGuages {
-  display: flex;
-  justify-content: space-around;
-}
-
-.gaugeContainer {
-  margin: 10px;
-}
-
-.guageBorder {
-	margin: 20px;
+.formBorder{
   border: 1px solid #ccc;
   padding: 20px;
-  display: inline-block;
+}
+
+.space
+{
+  margin-top: 50px;
+}
+
+.makeApiCall{
+	margin-top: 10px;
 }
