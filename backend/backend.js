@@ -5,6 +5,7 @@ var fs = require("fs");
 var bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/images", express.static("images"));
 const port = "8081";
 const host = "localhost";
 app.listen(port, () => {

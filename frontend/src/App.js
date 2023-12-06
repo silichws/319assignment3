@@ -20,7 +20,6 @@ const GET = () => {
   }
 
   const showAllItems = product.map(function (product) {
-    console.log("can run something");
     return (
       <div className="col" key={product.id}>
         <div className="card shadow-sm">
@@ -47,9 +46,6 @@ const GET = () => {
   });
   return (
     <div>
-      {/* -------------
-		Method GET all products
-		-----------------*/}
       <h1>Catalog of Products</h1>
       <div>
         <h3>Showing all available Products.</h3>
@@ -151,10 +147,7 @@ const UPDATE = () => {
 
   return (
     <div>
-      <h1>Show one Product by Id </h1>
-      {/* -------------
-	Method GET one product
-	-----------------*/}
+      <h1>Upate a product </h1>
       <div>
         <input
           type="text"
@@ -260,7 +253,7 @@ const CREATE = () => {
           price: formData.newPrice,
           description: formData.description,
           category: formData.category,
-          image: formData.image,
+          image: "http://127.0.0.1:8081/images/" + formData.image,
           rate: formData.rate,
           count: formData.count,
         }),
@@ -450,7 +443,7 @@ const CREATE = () => {
   );
 };
 
-const DELTE = () => {
+const DELETE = () => {
   const [oneProduct, setOneProduct] = useState([]);
   const [id, setId] = useState(-1);
 
@@ -512,10 +505,7 @@ const DELTE = () => {
 
   return (
     <div>
-      <h1>Show one Product by Id </h1>
-      {/* -------------
-	Method GET one product
-	-----------------*/}
+      <h1>Delete a product </h1>
       <div>
         <input
           type="text"
@@ -548,7 +538,7 @@ function App() {
               <Link to="/getid">Update</Link>
             </li>
             <li>
-              <Link to="/delete">DELETE</Link>
+              <Link to="/delete">Delete</Link>
             </li>
           </ul>
         </nav>
@@ -556,7 +546,7 @@ function App() {
           <Route path="/get" element={<GET />} />
           <Route path="/create" element={<CREATE />} />
           <Route path="/getid" element={<UPDATE />} />
-          <Route path="/delete" element={<DELTE />} />
+          <Route path="/delete" element={<DELETE />} />
         </Routes>
       </div>
     </Router>
