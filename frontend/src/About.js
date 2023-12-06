@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import "./App.css";
 
 const About = () => {
   return (
-    <div>
-      <h1>About US</h1>
+    <div className="about">
+      <div>
+        <h1>About US</h1>
+      </div>
       <h3>COM S - 319 Construction of User Interfaces</h3>
       <p>Instructor: Dr. Abraham N. Aldaco Gastelum</p>
       <p>Date : December 5, 2023 </p>
+
+      <p></p>
 
       <p>
         Developers: <br />

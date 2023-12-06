@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import About from "./About";
 
 const GET = () => {
   const [product, setProduct] = useState([]);
@@ -546,12 +547,16 @@ function App() {
           <Link className="navbtn" to="/delete">
             Delete
           </Link>
+          <Link className="navbtn" to="/about">
+            About
+          </Link>
         </nav>
         <Routes>
           <Route path="/get" element={<GET />} />
           <Route path="/create" element={<CREATE />} />
           <Route path="/getid" element={<UPDATE />} />
           <Route path="/delete" element={<DELETE />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
