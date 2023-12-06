@@ -66,7 +66,6 @@ app.post("/add", async (req, res) => {
   const newDoc = {
     id: id,
     title,
-    title,
     price,
     description,
     category,
@@ -115,7 +114,6 @@ app.put("/update", async (req, res) => {
 
   const newDoc = {
     id: id,
-    title,
     title,
     price,
     description,
