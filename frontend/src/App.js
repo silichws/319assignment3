@@ -139,8 +139,9 @@ const UPDATE = () => {
           console.log(data);
         });
       setFormData({
-        newPrice: "Price Updated",
+        newPrice: "",
       });
+      alert("Product updated");
     } else {
       setValidationErrors(errors);
     }
@@ -157,7 +158,7 @@ const UPDATE = () => {
           placeholder="id"
           onChange={(e) => getOneProduct(e.target.value)}
         />
-        <div className="centering">
+        <div>
           <div className="container" style={{ margin: 10 }}>
             <div className="row row-cols-1 row-cols-md-3 g-3">
               {showOneItem}
