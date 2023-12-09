@@ -7,6 +7,9 @@
 .space
 {
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .makeApiCall{
@@ -31,11 +34,14 @@
   text-align: center;
   margin-top: 30px;
   justify-content: center;
-    align-items: center; 
+  align-items: center; 
 }
 
 .spacing{
   margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about {
@@ -44,4 +50,25 @@
 
 topCenter{
   text-align: center;
+}
+
+.centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteCentering {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header{
+  margin-top: 10px;
+}
+.description {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
 }

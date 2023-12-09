@@ -157,7 +157,7 @@ const UPDATE = () => {
           placeholder="id"
           onChange={(e) => getOneProduct(e.target.value)}
         />
-        <div>
+        <div className="centering">
           <div className="container" style={{ margin: 10 }}>
             <div className="row row-cols-1 row-cols-md-3 g-3">
               {showOneItem}
@@ -502,7 +502,7 @@ const DELETE = () => {
             <strong>Rating:</strong> {product.rating["rate"]} (
             {product.rating["count"]} votes)
           </p>
-          <button onClick={handleClick}>Delete</button>
+          <button className="deleteBtn btn btn-danger text-dar"  onClick={handleClick}>Delete</button>
         </div>
       </div>
     </div>
@@ -519,7 +519,7 @@ const DELETE = () => {
           placeholder="id"
           onChange={(e) => getOneProduct(e.target.value)}
         />
-        <div className="container" style={{ margin: 10 }}>
+        <div className="container deleteCentering" style={{ margin: 10 }}>
           <div className="row row-cols-1 row-cols-md-3 g-3">{showOneItem}</div>
         </div>
       </div>
@@ -537,15 +537,15 @@ function App() {
           </Link>
 
           <Link className="navbtn" to="/create">
-            Create
+            Create Product
           </Link>
 
           <Link className="navbtn" to="/getid">
-            Update
+            Update Product
           </Link>
 
           <Link className="navbtn" to="/delete">
-            Delete
+            Delete Product
           </Link>
           <Link className="navbtn" to="/about">
             About
